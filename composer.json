@@ -1,0 +1,24 @@
+{
+    "name": "jorb/php-helpers",
+    "description": "Collection of random helper QoLfunctions.",
+    "authors": [
+        {
+            "name": "jordanbrauer",
+            "email": "18744334+jordanbrauer@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "src/__helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Helpers\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5",
+        "symfony/var-dumper": "^3.4"
+    }
+}
