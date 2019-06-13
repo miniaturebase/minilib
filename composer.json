@@ -9,7 +9,22 @@
     ],
     "autoload": {
         "files": [
-            "src/__helpers.php"
+            "src/append.php",
+            "src/blank.php",
+            "src/camel_case.php",
+            "src/head.php",
+            "src/kebab_case.php",
+            "src/only.php",
+            "src/ordinal.php",
+            "src/pascal_case.php",
+            "src/retry.php",
+            "src/snake_case.php",
+            "src/tail.php",
+            "src/tap.php",
+            "src/transform.php",
+            "src/value.php",
+            "src/with.php",
+            "src/wrap.php"
         ]
     },
     "autoload-dev": {
