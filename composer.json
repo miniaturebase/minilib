@@ -1,13 +1,16 @@
 {
-    "name": "jorb/php-helpers",
-    "description": "Collection of random helper QoLfunctions.",
+    "name": "jordanbrauer/phelpers",
+    "description": "Collection of random helper QoLfunctions for PHP.",
     "authors": [
         {
-            "name": "jordanbrauer",
+            "name": "Jordan Brauer",
             "email": "18744334+jordanbrauer@users.noreply.github.com"
         }
     ],
     "autoload": {
+        "psr-4": {
+            "Phelpers\\": "src/"
+        },
         "files": [
             "src/append.php",
             "src/blank.php",
@@ -29,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Helpers\\Tests\\": "tests/"
+            "Phelpers\\Tests\\": "tests/"
         }
     },
     "require-dev": {

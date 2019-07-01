@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Helpers;
+namespace Phelpers;
 
 /**
  * Return a new array containing only the specified key/keys.

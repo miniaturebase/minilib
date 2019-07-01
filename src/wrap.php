@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Helpers;
+namespace Phelpers;
 
 /**
  * Wrap a given value in an array if it is not already one.

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Helpers;
+namespace Phelpers;
 
 /**
  * Transform a string's casing into _**snake** case_.

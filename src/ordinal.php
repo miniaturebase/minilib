@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Helpers;
+namespace Phelpers;
 
 /**
  * Return the ordinal version of a given integer, as a string.

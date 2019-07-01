@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Helpers;
+namespace Phelpers;
 
 /**
  * Return the last item of an array.
