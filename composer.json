@@ -22,6 +22,7 @@
             "src/pascal_case.php",
             "src/retry.php",
             "src/snake_case.php",
+            "src/swap.php",
             "src/tail.php",
             "src/tap.php",
             "src/transform.php",
