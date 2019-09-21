@@ -20,6 +20,7 @@
             "src/only.php",
             "src/ordinal.php",
             "src/pascal_case.php",
+            "src/random_float.php",
             "src/retry.php",
             "src/snake_case.php",
             "src/str_random.php",
