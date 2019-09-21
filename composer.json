@@ -28,6 +28,7 @@
             "src/kebab_case.php",
             "src/only.php",
             "src/ordinal.php",
+            "src/partial.php",
             "src/pascal_case.php",
             "src/prepend.php",
             "src/random_float.php",
