@@ -16,3 +16,44 @@ $list = append(4, $list);
 echo head($list); # (int) 1
 echo tail($list); # (int) 4
 ```
+
+### Array Functions
+
+* `append`
+* `array_make`
+* `generate`
+* `head`
+* `is_associative`
+* `only`
+* `tail`
+* `wrap`
+
+### Number Functions
+
+* `between`
+* `ordinal`
+* `random_float`
+
+### Object Functions
+
+_N/A_
+
+### String Functions
+
+* `append`
+* `camel_case`
+* `class_basename`
+* `kebab_case`
+* `pascal_case`
+* `snake_case`
+* `str_random`
+
+### Miscellaneous Functions
+
+* `blank`
+* `retry`
+* `swap`
+* `tap`
+* `transform`
+* `value`
+* `with`
