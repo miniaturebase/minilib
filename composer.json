@@ -7,6 +7,9 @@
             "email": "18744334+jordanbrauer@users.noreply.github.com"
         }
     ],
+    "scripts": {
+        "test": "vendor/bin/phpunit tests"
+    },
     "autoload": {
         "psr-4": {
             "Phelpers\\": "src/"
