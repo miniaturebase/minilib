@@ -25,6 +25,7 @@ echo tail($list); # (int) 4
 * `head`
 * `is_associative`
 * `only`
+* `prepend`
 * `tail`
 * `wrap`
 
@@ -45,6 +46,7 @@ _N/A_
 * `class_basename`
 * `kebab_case`
 * `pascal_case`
+* `prepend`
 * `snake_case`
 * `str_random`
 
