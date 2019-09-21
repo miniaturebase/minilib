@@ -5,15 +5,30 @@ declare(strict_types = 1);
 namespace Phelpers\Tests;
 
 use PHPUnit\Framework\TestCase;
-use function Phelpers\class_basename;
+use function Phelpers\{class_basename};
+use Iterator;
+use Exception;
 
 final class ClassBasenameTest extends TestCase
 {
-    public function test(): void
+    /**
+     * @dataProvider classes
+     * @param string $expected
+     * @param mixed $value
+     * @return void
+     */
+    public function test(string $expected, $value): void
     {
-        $expected = 'Classname';
-        $actual = class_basename('\\Some\\Long\\Nested\\Namespace\\For\\A\\Classname');
+        $this->assertSame($expected, class_basename($value));
+    }
 
-        $this->assertSame($expected, $actual);
+    public function classes(): Iterator
+    {
+        yield from [
+            'class string name' => ['Classname', '\\Some\\Long\\Nested\\Namespace\\For\\A\\Classname'],
+            'class instance' => ['Exception', new Exception],
+            'empty string' => ['', ''],
+            'blank string' => ['', '   '],
+        ];
     }
 }
