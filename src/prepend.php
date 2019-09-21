@@ -10,14 +10,18 @@ use InvalidArgumentException;
  * Prepend an item onto a given subject.
  *
  * @param mixed $head
- * @param array|string $subject
+ * @param array|string|int|float $subject
  * @param string $delimiter
  * @return array|string
  */
 function prepend($head, $subject, string $delimiter = '') {
-    if (\is_string($subject) and !(\is_string($head) or \is_numeric($head))) {
+    $isStringable = function ($subject): bool {
+        return \is_string($subject) or \is_numeric($subject);
+    };
+    
+    if ($isStringable($subject) and !$isStringable($head)) {
         throw new InvalidArgumentException(\sprintf('Arguments 1 and 2 passed to %s must be of the type %s, %s|%s given', __FUNCTION__, 'string', \gettype($head), \gettype($subject)));
-    } else if (!\is_array($subject) and !\is_string($subject)) {
+    } else if (!\is_array($subject) and !$isStringable($subject)) {
         throw new InvalidArgumentException(\sprintf('Argument 2 passed to %s must be of the type %s, %s given', __FUNCTION__, 'array', \gettype($subject)));
     }
 
@@ -27,5 +31,5 @@ function prepend($head, $subject, string $delimiter = '') {
         return $subject;
     }
     
-    return $subject.$delimiter.$tail;
+    return $head.$delimiter.$subject;
 }
