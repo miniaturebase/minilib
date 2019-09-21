@@ -13,6 +13,7 @@
         },
         "files": [
             "src/append.php",
+            "src/array_make.php",
             "src/blank.php",
             "src/camel_case.php",
             "src/head.php",
