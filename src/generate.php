@@ -8,17 +8,17 @@ use Closure;
 use InvalidArgumentException;
 
 function generate($indices = 0, Closure $closure = null) {
-    $type = gettype($indices);
+    $isInt = \is_int($indices);
     
-    if (!in_array($type, ['integer', 'array'])) {
-        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type int|array, %s given', __FUNCTION__, $type));
+    if (!$isInt and !\is_array($indices)) {
+        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|array', gettype($indices)));
     }
     
     if (!$indices) {
         return [];
     }
 
-    if ('integer' == $type) {
+    if ($isInt) {
         $indices = range(0, max($indices - 1, 0));
         $items = [];
 
