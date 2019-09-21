@@ -9,10 +9,15 @@ use PHPUnit\Framework\TestCase;
 
 final class RetryTest extends TestCase
 {
+    /**
+     * @covers Phelpers\retry
+     * @return void
+     */
     public function test(): void
     {
         $actual = 0;
         $expected = 10;
+
         retry($expected, function () use (&$actual, $expected) {
             $actual++;
 
