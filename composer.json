@@ -16,6 +16,7 @@
             "src/blank.php",
             "src/camel_case.php",
             "src/head.php",
+            "src/is_associative.php",
             "src/kebab_case.php",
             "src/only.php",
             "src/ordinal.php",
