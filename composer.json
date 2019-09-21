@@ -16,6 +16,7 @@
             "src/array_make.php",
             "src/blank.php",
             "src/camel_case.php",
+            "src/generate.php",
             "src/head.php",
             "src/is_associative.php",
             "src/kebab_case.php",
