@@ -13,7 +13,7 @@ use InvalidArgumentException;
  */
 function between($subject, $min, $max): bool {
     if (!is_numeric($subject)) {
-        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type numeric, %s given', __FUNCTION__, $type));
+        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type numeric, %s given', __FUNCTION__, gettype($subject)));
     }
     
     return $subject >= $min and $subject <= $max;
