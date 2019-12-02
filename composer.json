@@ -16,6 +16,7 @@
         },
         "files": [
             "src/append.php",
+            "src/array_keys_exist.php",
             "src/array_make.php",
             "src/between.php",
             "src/blank.php",
