@@ -6,8 +6,9 @@ namespace Phelpers;
 
 use Closure;
 use InvalidArgumentException;
+use Generator;
 
-function generate($indices = 0, Closure $closure = null) {
+function generate($indices = 0, Closure $closure = null): Generator {
     $isInt = \is_int($indices);
     
     if (!$isInt and !\is_array($indices)) {
