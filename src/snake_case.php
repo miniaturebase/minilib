@@ -7,10 +7,9 @@ namespace Phelpers;
 /**
  * Transform a string's casing into _**snake** case_.
  * 
- * @see https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
- *
  * @param string $subject The string to transform casing.
  * @return string
+ * @see https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
  */
 function snake_case(string $subject, $delimiter = '_'): string {
     if (!\ctype_lower($subject)) {

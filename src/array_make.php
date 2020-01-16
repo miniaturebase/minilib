@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace Phelpers;
 
 use Closure;
+use InvalidArgumentException;
 
 /**
  * Fill an array with a number of items equal to the result of the closure; something
@@ -20,7 +21,7 @@ function array_make($indices = 0, Closure $closure = null): array {
     $isInt = \is_int($indices);
     
     if (!$isInt and !\is_array($indices)) {
-        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|array', gettype($indices)));
+        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|array', \gettype($indices)));
     }
     
     if (!$indices) {
@@ -30,7 +31,7 @@ function array_make($indices = 0, Closure $closure = null): array {
     $items = [];
     
     if ($isInt) {
-        $indices = range(0, max($indices - 1, 0));
+        $indices = \range(0, \max($indices - 1, 0));
 
         foreach ($indices as $index) {
             $items[] = with(tail($items) ?? 0, $closure);

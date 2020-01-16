@@ -4,8 +4,6 @@ declare(strict_types = 1);
 
 namespace Phelpers;
 
-use Traversable;
-
 /**
  * Return the first item in an array.
  *
@@ -13,5 +11,5 @@ use Traversable;
  * @return mixed
  */
 function head(array $items) {
-    return (!count($items)) ? null : array_values($items)[0] ?? null;
+    return (!\count($items)) ? null : \array_values($items)[0] ?? null;
 }

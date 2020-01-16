@@ -16,6 +16,6 @@ use Closure;
  */
 function partial(callable $function, ...$arguments): Closure {
     return function (...$nextArguments) use ($function, $arguments) {
-        return $function(...array_merge($arguments, $nextArguments));
+        return $function(...\array_merge($arguments, $nextArguments));
     };
 }

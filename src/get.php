@@ -20,7 +20,7 @@ function get($subject, string $key, $default = null) {
     $isObject = \is_object($subject);
     
     if (!$isObject and !\is_array($subject)) {
-        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'array|object', gettype($subject)));
+        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'array|object', \gettype($subject)));
     }
     
     if ($isObject) {
