@@ -8,6 +8,16 @@ use Closure;
 use InvalidArgumentException;
 use Generator;
 
+/**
+ * Create a generator for a number of indices given, each equal to the result of
+ * the closure. The closure will receive the result of the last iteration as it's
+ * first parameter. You can also pass an array of values as the indices, and each
+ * one will be passed to the closure, instead of just the number of items.
+ *
+ * @param int|array $indices How many times or items to generate
+ * @param Closure $closure The closure that will be called to generate a value
+ * @return array
+ */
 function generate($indices = 0, Closure $closure = null): Generator {
     $isInt = \is_int($indices);
     
