@@ -7,7 +7,8 @@ namespace Phelpers;
 /**
  * Transform a string's casing into _**snake** case_.
  * 
- * @param string $subject The string to transform casing.
+ * @param string $subject The string to transform casing
+ * @param string $delimeter An optional character(s) to join words with
  * @return string
  * @see https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
  */
