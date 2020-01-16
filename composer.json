@@ -27,6 +27,7 @@
             "src/head.php",
             "src/is_associative.php",
             "src/kebab_case.php",
+            "src/numeronym.php",
             "src/only.php",
             "src/ordinal.php",
             "src/partial.php",
