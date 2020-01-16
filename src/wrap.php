@@ -11,7 +11,9 @@ namespace Phelpers;
  * @return array
  */
 function wrap($subject): array {
-    if (is_null($subject)) return [];
+    if (\is_null($subject)) {
+        return [];
+    }
 
-    return (is_array($subject)) ? $subject : [$subject];
+    return (\is_array($subject)) ? $subject : [$subject];
 }

@@ -24,5 +24,5 @@ function class_basename($class, string $delimiter = '\\'): string {
         return '';
     }
     
-    return tail(explode($delimiter, ($isObject) ? \get_class($class) : $class));
+    return tail(\explode($delimiter, ($isObject) ? \get_class($class) : $class));
 }

@@ -14,7 +14,9 @@ namespace Phelpers;
 function only(array $array, $keys): array {
     $new = [];
 
-    foreach (wrap($keys) as $key) $new[$key] = $array[$key];
+    foreach (wrap($keys) as $key) {
+        $new[$key] = $array[$key];
+    }
 
     return $new;
 }

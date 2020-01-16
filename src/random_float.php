@@ -14,10 +14,10 @@ namespace Phelpers;
  * @see https://stackoverflow.com/a/32898214
  */
 function random_float($min, $max, int $precision = null): float {
-    $result = $min + lcg_value() * abs($max - $min);
+    $result = $min + \lcg_value() * \abs($max - $min);
 
     if (null !== $precision) {
-        return round($result, $precision);
+        return \round($result, $precision);
     }
 
     return $result;

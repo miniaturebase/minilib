@@ -11,5 +11,5 @@ namespace Phelpers;
  * @return mixed
  */
 function tail(array $items) {
-    return head(array_slice($items, -1));
+    return head(\array_slice($items, -1));
 }

@@ -15,5 +15,5 @@ namespace Phelpers;
  * @see https://stackoverflow.com/a/173479
  */
 function is_associative(array $array): bool {
-    return ([] === $array) ? false : array_keys($array) !== range(0, count($array) - 1);
+    return ([] === $array) ? false : \array_keys($array) !== \range(0, \count($array) - 1);
 }

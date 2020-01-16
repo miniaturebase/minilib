@@ -12,7 +12,7 @@ function generate($indices = 0, Closure $closure = null): Generator {
     $isInt = \is_int($indices);
     
     if (!$isInt and !\is_array($indices)) {
-        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|array', gettype($indices)));
+        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|array', \gettype($indices)));
     }
     
     if (!$indices) {
@@ -20,7 +20,7 @@ function generate($indices = 0, Closure $closure = null): Generator {
     }
 
     if ($isInt) {
-        $indices = range(0, max($indices - 1, 0));
+        $indices = \range(0, \max($indices - 1, 0));
         $items = [];
 
         foreach ($indices as $index) {

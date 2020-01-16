@@ -16,5 +16,5 @@ namespace Phelpers;
 function str_random(int $length = 8): string {
     $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-    return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
+    return \substr(\str_shuffle(\str_repeat($pool, 5)), 0, $length);
 }
