@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Phelpers\Tests;
 
-use function Phelpers\{array_keys_exist, random_float};
+use function Phelpers\{array_keys_exist};
 use PHPUnit\Framework\TestCase;
 use Iterator;
 use stdClass;

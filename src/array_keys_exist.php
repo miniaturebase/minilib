@@ -13,5 +13,5 @@ namespace Phelpers;
  * @return bool
  */
 function array_keys_exist(array $keys, array $subject, int $minimum = 1): bool {
-    return count(array_intersect_key(array_flip($keys), $subject)) >= min($minimum, count($keys));
+    return \count(\array_intersect_key(\array_flip($keys), $subject)) >= \min($minimum, \count($keys));
 }
