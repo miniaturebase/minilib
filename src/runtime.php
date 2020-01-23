@@ -4,45 +4,57 @@ declare(strict_types = 1);
 
 namespace Phelpers;
 
-function runtime() {
-// function runtime(bool $errors = false, bool $clear = false) {
+use Closure;
 
-    // $sapi = \php_sapi_name();
-    // $isCli = 'cli' === $sapi;
-
-    // if ($clear && $isCli) {
-    //     \system('clear');
-    // }
-
-    // if ($errors) {
-    //     \error_reporting(\E_ALL);
-    //     \ini_set('display_errors', 1);
-    // }
-
-    $calcMemUsage = function ($x) {
-        return @\round($x / \pow(1024, ($i = \floor(\log($x, 1024)))), 2).' '.['b', 'kb', 'mb', 'gb', 'tb', 'pb'][$i];
-    };
+/**
+ * Receive information about the current environment running the program.
+ *
+ * **Available Keys:** `interface`, `user`, `os`, `version`, and `memory`.
+ * 
+ * @param string ...$keys A variadic set of keys that will be used to return a subset of information
+ * @return array
+ */
+function runtime(string ...$keys): array {
     $env = [
-        'operating_system' => \php_uname('s'),
-        'machine_architecture' => \php_uname('m'),
-        'os_version' => \php_uname('v'),
-        'os_release' => \php_uname('r'),
-        'php_sapi_version' => \sprintf('%s (%s)', \phpversion(), \php_sapi_name()),
-        'zend_version' => \zend_version(),
-        'memory' => (object) [
-            'limit' => \ini_get('memory_limit'),
-            'used' => $calcMemUsage(\memory_get_usage(\true)),
-        ],
-        'user' => whoami(),
+        'interface' => static function (): string {
+            return \PHP_SAPI;
+        },
+        'user' => static function (): string {
+            return whoami();
+        },
+        'os' => static function (): array {
+            return [
+                'architecture' => \php_uname('m'),
+                'name' => \PHP_OS_FAMILY,
+                'release' => \php_uname('r'),
+                'version' => \php_uname('v'),
+            ];
+        },
+        'version' => static function (): array {
+            return [
+                'id' => \PHP_VERSION_ID,
+                'sapi' => \sprintf('%s (%s)', \PHP_VERSION, \PHP_SAPI),
+                'zend' => \zend_version(),
+            ];
+        },
+        'memory' => static function (): array {
+            $calcMemUsage = static function ($x) {
+                return @\round($x / \pow(1024, ($i = \floor(\log($x, 1024)))), 2).' '.['b', 'kb', 'mb', 'gb', 'tb', 'pb'][$i];
+            };
+            
+            return [
+                'limit' => \ini_get('memory_limit'),
+                'used' => $calcMemUsage(\memory_get_usage(\true)),
+            ];
+        },
     ];
-
-    // if ($isCli) {
-    //     foreach ($env as $key => $value) {
-    //         echo \PHP_EOL.' '.ucwords(\str_replace('_', ' ', $key)).': '.$value;
-    //     }
-
-    //     return;
-    // }
-
-    return (object) $env;
+    $isSubset = !empty($keys);
+    $subjects = (($isSubset) ? only($env, $keys) : $env);
+    
+    return \array_combine(
+        \array_keys(($isSubset) ? only(\array_flip(\array_keys($env)), $keys) : $env), 
+        map($subjects, static function (Closure $property) {
+            return value($property);
+        }),
+    );
 }
