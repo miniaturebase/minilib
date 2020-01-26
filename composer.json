@@ -25,6 +25,7 @@
             "src/generate.php",
             "src/get.php",
             "src/head.php",
+            "src/ini.php",
             "src/is_associative.php",
             "src/kebab_case.php",
             "src/map.php",
