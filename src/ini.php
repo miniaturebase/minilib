@@ -22,7 +22,7 @@ function ini($source): array {
         $input = $source;
     }
 
-    if (!$input) {
+    if (\is_null($input)) {
         throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'array|string', \gettype($source)));
     }
     
