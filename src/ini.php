@@ -17,7 +17,7 @@ function ini($source): array {
     $input = null;
     
     if (\is_string($source) and \file_exists($source)) {
-        $input = \parse_ini_file($source, true);
+        $input = \parse_ini_file($source, true, \INI_SCANNER_TYPED);
     } else if (\is_array($source)) {
         $input = $source;
     }
@@ -28,23 +28,47 @@ function ini($source): array {
     
     $root = [];
     $toArray = static function (string $value, $transformer): array {
-        $items = map(\explode(',', (\trim(\trim($value), '[]'))), static function (string $item) use ($transformer) {
-            return transform($item, $transformer);
-        });
-        
-        return \array_filter($items, static function ($value): bool {
-            return !blank($value);
+        return map(\explode(',', (\trim(\trim($value), '[]'))), static function (string $item) use ($transformer) {
+            return transform(\trim($item), $transformer);
         });
     };
     $transformer = static function ($value) use (&$transformer, $toArray) {
         if (\is_array($value)) {
-            $value = ini($value);
-        } else if (\is_numeric($value) and \stristr((string) $value, '.')) {
-            $value = (float) $value;
-        } else if (\is_numeric($value)) {
-            $value = (int) $value;
-        } else if (\is_string($value) and '[]' === $value[0] . $value[-1]) {
-            $value = $toArray($value, $transformer);
+            return ini($value);
+        }
+        
+        $isNumeric = \is_numeric($value);
+
+        if ($isNumeric and false !== \stristr((string) $value, '.')) {
+            return (float) $value;
+        }
+
+        if ($isNumeric) {
+            return (int) $value;
+        }
+        
+        if (\is_string($value)) {
+            if ('true' === $value) {
+                return true;
+            }
+            
+            if ('false' === $value) {
+                return false;
+            }
+            
+            if ('null' === $value) {
+                return null;
+            }
+            
+            $chars = \str_split($value);
+            
+            if ('[]' === \trim(head($chars) ?? '') . \trim(tail($chars) ?? '')) {
+                $value = \array_filter($toArray($value, $transformer), static function ($value): bool {
+                    return !\is_null($value) and '' !== $value;
+                });
+            }
+
+            return $value;
         }
 
         return $value;
