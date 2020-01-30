@@ -12,11 +12,15 @@ use InvalidArgumentException;
  * an array or object, and unsure which it could be.
  *
  * @param array|object $subject The subject to get a value from by a given key/property name
- * @param string $path The index, key, property, or dot separated path name to get a value at
+ * @param string|int $path The index, key, property, or dot separated path name to get a value at
  * @param mixed $default A fallback value to provide if things don't go your way
  * @return mixed
  */
-function get($subject, string $path, $default = null) {
+function get($subject, $path, $default = null) {
+    if (!\is_string($path) and !\is_int($path)) {
+        throw new InvalidArgumentException(\sprintf('Argument 2 passed to %s must be of the type %s, %s given', __FUNCTION__, 'string|int', \gettype($path)));
+    }
+    
     $isArray = \is_array($subject);
     $isObject = \is_object($subject);
     
