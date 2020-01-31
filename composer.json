@@ -22,11 +22,14 @@
             "src/blank.php",
             "src/camel_case.php",
             "src/class_basename.php",
+            "src/collapse.php",
             "src/generate.php",
             "src/get.php",
             "src/head.php",
             "src/ini.php",
             "src/is_associative.php",
+            "src/is_falsey.php",
+            "src/is_truthy.php",
             "src/kebab_case.php",
             "src/map.php",
             "src/only.php",
@@ -47,7 +50,8 @@
             "src/value.php",
             "src/whoami.php",
             "src/with.php",
-            "src/wrap.php"
+            "src/wrap.php",
+            "src/zip.php"
         ]
     },
     "autoload-dev": {
