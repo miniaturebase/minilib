@@ -24,7 +24,9 @@ function is_truthy($value): bool {
         return $value > 0;
     }
 
-    if (\is_string($value)) {
+    $notBlank = !blank($value);
+    
+    if (\is_string($value) and $notBlank) {
         return \in_array(
             \strtolower(\trim($value)),
             ['true', '1', 'yes', 'on', 'enabled', 'active'],
@@ -32,5 +34,5 @@ function is_truthy($value): bool {
         );
     }
 
-    return !blank($value) and false !== (bool) $value;
+    return $notBlank and false !== (bool) $value;
 }
