@@ -17,6 +17,14 @@ echo head($list); # (int) 1
 echo tail($list); # (int) 4
 ```
 
+### Try Me
+
+If you would like to play around with the functions, simply boot up the REPL packaged with the repository!
+
+```bash
+$ php play
+```
+
 ### Array Functions
 
 * `append`

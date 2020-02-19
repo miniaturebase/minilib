@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types = 1);
+
+require_once __DIR__.'/vendor/autoload.php';
+
+use Psy\Shell;
+use Psy\Configuration;
+
+$configuration = new Configuration([
+    'prompt' => 'λ ',
+    'defaultIncludes' => [
+        __DIR__.'/vendor/autoload.php',
+    ],
+    'updateCheck' => 'never',
+]);
+$shell = new Shell($configuration);
+
+try {
+    $shell->run();
+} catch (Throwable $caught) {
+    exit(min(1, $caught->getCode()));
+}
+
+exit(0);
