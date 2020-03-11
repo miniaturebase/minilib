@@ -19,6 +19,7 @@
             "src/array_keys_exist.php",
             "src/array_make.php",
             "src/between.php",
+            "src/bits.php",
             "src/blank.php",
             "src/camel_case.php",
             "src/class_basename.php",
