@@ -65,7 +65,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Phelpers\\Tests\\": "tests/"
+            "Phelpers\\Tests\\": "tests/",
+            "Phelpers\\Tests\\Unit\\": "tests/Unit/"
         }
     },
     "require-dev": {

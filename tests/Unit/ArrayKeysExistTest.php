@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Phelpers\Tests;
+namespace Phelpers\Tests\Unit;
 
 use function Phelpers\array_keys_exist;
 
