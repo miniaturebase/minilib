@@ -21,11 +21,11 @@ function clamp($subject, $min, $max) {
     }
     
     if (!is_numeric($min)) {
-        throw new InvalidArgumentException(\sprintf('Argument 2 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|float|string', \gettype($subject)));
+        throw new InvalidArgumentException(\sprintf('Argument 2 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|float|string', \gettype($min)));
     }
     
     if (!is_numeric($max)) {
-        throw new InvalidArgumentException(\sprintf('Argument 3 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|float|string', \gettype($subject)));
+        throw new InvalidArgumentException(\sprintf('Argument 3 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|float|string', \gettype($max)));
     }
     
     return \min(\max($subject, $min), $max);
