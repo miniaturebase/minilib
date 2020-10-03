@@ -16,15 +16,15 @@ use InvalidArgumentException;
  * @return int|float|string
  */
 function clamp($subject, $min, $max) {
-    if (!is_numeric($subject)) {
+    if (!\is_numeric($subject)) {
         throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|float|string', \gettype($subject)));
     }
     
-    if (!is_numeric($min)) {
+    if (!\is_numeric($min)) {
         throw new InvalidArgumentException(\sprintf('Argument 2 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|float|string', \gettype($min)));
     }
     
-    if (!is_numeric($max)) {
+    if (!\is_numeric($max)) {
         throw new InvalidArgumentException(\sprintf('Argument 3 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|float|string', \gettype($max)));
     }
     
