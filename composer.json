@@ -72,6 +72,7 @@
     "require-dev": {
         "symfony/var-dumper": "~4",
         "phpunit/phpunit": "9.3.11",
-        "pestphp/pest": "^0.3.7"
+        "pestphp/pest": "^0.3.7",
+        "psy/psysh": "^0.10.4"
     }
 }
