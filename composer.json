@@ -19,22 +19,35 @@
             "src/array_keys_exist.php",
             "src/array_make.php",
             "src/between.php",
+            "src/bits.php",
             "src/blank.php",
             "src/camel_case.php",
             "src/class_basename.php",
+            "src/collapse.php",
             "src/generate.php",
             "src/get.php",
             "src/head.php",
+            "src/here.php",
+            "src/ini.php",
+            "src/ip.php",
             "src/is_associative.php",
+            "src/is_console.php",
+            "src/is_falsey.php",
+            "src/is_truthy.php",
+            "src/is_web.php",
             "src/kebab_case.php",
             "src/numeronym.php",
+            "src/map.php",
+            "src/me.php",
             "src/only.php",
             "src/ordinal.php",
             "src/partial.php",
             "src/pascal_case.php",
             "src/prepend.php",
+            "src/put.php",
             "src/random_float.php",
             "src/retry.php",
+            "src/runtime.php",
             "src/snake_case.php",
             "src/str_random.php",
             "src/swap.php",
@@ -42,8 +55,10 @@
             "src/tap.php",
             "src/transform.php",
             "src/value.php",
+            "src/whoami.php",
             "src/with.php",
-            "src/wrap.php"
+            "src/wrap.php",
+            "src/zip.php"
         ]
     },
     "autoload-dev": {
@@ -53,6 +68,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^7.5",
-        "symfony/var-dumper": "^3.4"
+        "symfony/var-dumper": "^3.4",
+        "psy/psysh": "@stable"
     }
 }
