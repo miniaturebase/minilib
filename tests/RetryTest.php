@@ -4,28 +4,21 @@ declare(strict_types = 1);
 
 namespace Phelpers\Tests;
 
-use function Phelpers\{retry};
-use PHPUnit\Framework\TestCase;
+use Exception;
 
-final class RetryTest extends TestCase
-{
-    /**
-     * @covers Phelpers\retry
-     * @return void
-     */
-    public function test(): void
-    {
-        $actual = 0;
-        $expected = 10;
+use function Phelpers\retry;
 
-        retry($expected, function () use (&$actual, $expected) {
-            $actual++;
+it('retries', function (): void {
+    $actual = 0;
+    $expected = 10;
 
-            if ($actual < $expected) {
-                throw new \Exception;
-            }
-        });
+    retry($expected, function () use (&$actual, $expected) {
+        $actual++;
 
-        $this->assertSame($expected, $actual);
-    }
-}
+        if ($actual < $expected) {
+            throw new Exception;
+        }
+    });
+
+    expect($actual)->toBe($expected);
+});

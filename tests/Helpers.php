@@ -1,5 +1,5 @@
 <?php
 
-namespace Tests;
+namespace Phelpers\Tests;
 
 // ..
