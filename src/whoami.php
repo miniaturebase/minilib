@@ -10,5 +10,5 @@ namespace Phelpers;
  * @return string|null
  */
 function whoami(): ?string {
-    return get(posix_getpwuid(posix_geteuid()), 'name');
+    return read(posix_getpwuid(posix_geteuid()), 'name');
 }

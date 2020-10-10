@@ -11,7 +11,7 @@ namespace Phelpers;
  */
 function me(int $level = 1, bool $extension = true): string {
     // dump(\debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, $level + 1));
-    $pathinfo = \pathinfo(get(tail(\debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, $level + 1)), 'file'));
+    $pathinfo = \pathinfo(read(tail(\debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, $level + 1)), 'file'));
     $hasExtension = ($extension && \array_key_exists('extension', $pathinfo)) ? 'extension' : null;
     
     return \implode('.', only($pathinfo, \array_filter(['filename', $hasExtension])));

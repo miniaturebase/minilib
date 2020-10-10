@@ -23,7 +23,7 @@ function ip($default = '127.0.0.1'): string {
     }
 
     $fromServer = function ($key) use ($isValid) {
-        $ip = get($_SERVER, $key);
+        $ip = read($_SERVER, $key);
         
         return (!blank($ip) and $isValid($ip)) ? $ip : null;
     };

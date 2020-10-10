@@ -11,7 +11,7 @@ namespace Phelpers;
  */
 function here($directorySeparator = false): string {
     // dump(getcwd());
-    $pathinfo = \pathinfo(get(head(\debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1)), 'file'));
+    $pathinfo = \pathinfo(read(head(\debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1)), 'file'));
     
-    return append($directorySeparator ? DIRECTORY_SEPARATOR : '', get($pathinfo, 'dirname'));
+    return append($directorySeparator ? DIRECTORY_SEPARATOR : '', read($pathinfo, 'dirname'));
 }

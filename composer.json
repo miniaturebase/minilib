@@ -27,7 +27,6 @@
             "src/class_basename.php",
             "src/collapse.php",
             "src/generate.php",
-            "src/get.php",
             "src/head.php",
             "src/here.php",
             "src/ini.php",
@@ -46,8 +45,8 @@
             "src/partial.php",
             "src/pascal_case.php",
             "src/prepend.php",
-            "src/put.php",
             "src/random_float.php",
+            "src/read.php",
             "src/retry.php",
             "src/runtime.php",
             "src/snake_case.php",
@@ -60,6 +59,7 @@
             "src/whoami.php",
             "src/with.php",
             "src/wrap.php",
+            "src/write.php",
             "src/zip.php"
         ]
     },

@@ -12,7 +12,7 @@ use InvalidArgumentException;
  * @param mixed $value The value to be set
  * @return void
  */
-function put(&$subject, string $path, $value): void {
+function write(&$subject, string $path, $value): void {
     $isArray = \is_array($subject);
     $object = null;
     

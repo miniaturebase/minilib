@@ -16,7 +16,7 @@ use InvalidArgumentException;
  * @param mixed $default A fallback value to provide if things don't go your way
  * @return mixed
  */
-function get($subject, $path, $default = null) {
+function read($subject, $path, $default = null) {
     if (!\is_string($path) and !\is_int($path)) {
         throw new InvalidArgumentException(\sprintf('Argument 2 passed to %s must be of the type %s, %s given', __FUNCTION__, 'string|int', \gettype($path)));
     }

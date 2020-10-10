@@ -28,13 +28,13 @@ function only($subject, $keys) {
         }
         
         $noop = md5(str_random() . sprintf('%s.%d', $path, $index));
-        $value = get($subject, $path, $noop);
+        $value = read($subject, $path, $noop);
 
         if ($noop === $value) {
             continue;
         }
         
-        put($new, $path, $value);
+        write($new, $path, $value);
     }
 
     return $new;

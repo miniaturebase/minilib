@@ -83,13 +83,13 @@ function ini($source): array {
         
         foreach (\array_slice($inheritance, 0, 2) as $section) {
             if (\array_key_exists($section, $root)) {
-                $parent = get($root, $section);
+                $parent = read($root, $section);
 
                 continue;
             }
 
             if ($parent) {
-                put($root, $section, \array_merge($parent, $value));
+                write($root, $section, \array_merge($parent, $value));
             }
         }
 
@@ -97,7 +97,7 @@ function ini($source): array {
             return;
         }
 
-        put($root, $path, $value);
+        write($root, $path, $value);
     });
 
     return $root;
