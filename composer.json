@@ -24,6 +24,7 @@
             "src/bits.php",
             "src/blank.php",
             "src/camel_case.php",
+            "src/clamp.php",
             "src/class_basename.php",
             "src/collapse.php",
             "src/generate.php",
