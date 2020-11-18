@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Phelpers;
 
-use InvalidArgumentException;
+use TypeError;
 
 /**
  * Parse a complex `.ini` file with types, arrays, section inheritance, and
@@ -14,72 +14,65 @@ use InvalidArgumentException;
  * @return array
  */
 function ini($source): array {
-    $input = null;
+    $document = null;
     
-    if (\is_string($source) and \file_exists($source)) {
-        $input = \parse_ini_file($source, true, \INI_SCANNER_TYPED);
-    } else if (\is_array($source)) {
-        $input = $source;
+    if (\is_array($source)) {
+        $document = $source;
+    } else {
+        if (\is_resource($source) and 'stream' === \get_resource_type($source)) {
+            \rewind($source);
+
+            $contents = '';
+            
+            while (($line = \fgets($source)) !== false) {
+                $contents = append($line, $contents);
+            }
+        
+            \fclose($source);
+            swap($contents, $source);
+            unset($contents);
+        }
+
+        if (\is_string($source)) {
+            $document = (\is_file($source))
+                ? \parse_ini_file($source, true, \INI_SCANNER_TYPED)
+                : \parse_ini_string($source, true, \INI_SCANNER_TYPED);
+        }
     }
 
-    if (\is_null($input)) {
-        throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'array|string', \gettype($source)));
+    if (\is_null($document)) {
+        throw new TypeError(\sprintf('Argument 1 passed to %s() must be of the type %s, %s given', __FUNCTION__, 'array|string', \gettype($source)));
     }
     
     $root = [];
-    $toArray = static function (string $value, $transformer): array {
-        return map(\explode(',', (\trim(\trim($value), '[]'))), static function (string $item) use ($transformer) {
-            return transform(\trim($item), $transformer);
-        });
+    $trim = static function (string $value): string {
+        return \trim($value);
     };
-    $transformer = static function ($value) use (&$transformer, $toArray) {
-        if (\is_array($value)) {
-            return ini($value);
+    $parse = static function ($value) use ($trim) {
+        if (\is_string($value)) {
+            $value = $trim($value);
         }
-        
-        $isNumeric = \is_numeric($value);
 
-        if ($isNumeric and false !== \stristr((string) $value, '.')) {
+        if (\is_numeric($value)) {
+            if (false === \stristr((string) $value, '.')) {
+                return (int) $value;
+            }
+            
             return (float) $value;
         }
 
-        if ($isNumeric) {
-            return (int) $value;
-        }
-        
-        if (\is_string($value)) {
-            if ('true' === $value) {
-                return true;
-            }
-            
-            if ('false' === $value) {
-                return false;
-            }
-            
-            if ('null' === $value) {
-                return null;
-            }
-            
-            $chars = \str_split($value);
-            
-            if ('[]' === \trim(head($chars) ?? '') . \trim(tail($chars) ?? '')) {
-                $value = \array_filter($toArray($value, $transformer), static function ($value): bool {
-                    return !\is_null($value) and '' !== $value;
-                });
-            }
-
-            return $value;
+        if (\is_array($value)) {
+            return ini($value);
         }
 
         return $value;
     };
     
-    map($input, static function ($value, $path) use (&$root, $transformer) {
+    map($document, static function ($value, $path) use (&$root, $parse, $trim) {
         $parent = null;
-        $inheritance = \array_reverse(\array_map(static function (string $value): string {
-            return \trim($value);
-        }, \explode('<', $path)));
-        $value = transform($value, $transformer);
+        $path = (string) $path; // handle lists ("arrays")
+        $inheritance = \array_reverse(\array_map($trim, \explode('<', $path)));
+        $value = transform($value, $parse);
         
         foreach (\array_slice($inheritance, 0, 2) as $section) {
             if (\array_key_exists($section, $root)) {

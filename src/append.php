@@ -16,7 +16,9 @@ use InvalidArgumentException;
  */
 function append($tail, $subject, string $delimiter = '') {
     $isStringable = function ($subject): bool {
-        return \is_string($subject) or \is_numeric($subject);
+        return \is_string($subject)
+            or \is_numeric($subject)
+            or (\is_object($subject) and \method_exists($subject, '__toString'));
     };
     
     if ($isStringable($subject) and !$isStringable($tail)) {
