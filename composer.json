@@ -27,6 +27,7 @@
             "src/clamp.php",
             "src/class_basename.php",
             "src/collapse.php",
+            "src/exists.php",
             "src/generate.php",
             "src/head.php",
             "src/here.php",
