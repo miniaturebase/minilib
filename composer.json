@@ -71,6 +71,9 @@
             "Phelpers\\Tests\\Unit\\": "tests/Unit/"
         }
     },
+    "require": {
+        "php": "^7.1"
+    },
     "require-dev": {
         "symfony/var-dumper": "~4",
         "phpunit/phpunit": "9.3.11",
