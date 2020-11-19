@@ -32,20 +32,24 @@ function read($subject, $path, $default = null) {
         return $subject[$path];
     }
     
-    if ($isObject and \property_exists($subject, $path)) {
+    $hasProperty = static function ($subject, string $path): bool {
+        return isset($subject->{$path}) or \property_exists($subject, $path);
+    };
+    
+    if ($isObject and $hasProperty($subject, $path)) {
         return $subject->{$path};
     }
     
     foreach (\explode(".", $path) as $segment) {
         $isArray = \is_array($subject);
         $isObject = \is_object($subject);
-        
+
         if (!$isArray and !$isObject) {
             continue;
         }
     
         if (($isArray and !\array_key_exists($segment, $subject))
-            or ($isObject and !\property_exists($subject, $segment))
+            or ($isObject and !$hasProperty($subject, $segment))
         ) {
             $subject = value($default);
 
