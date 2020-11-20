@@ -10,5 +10,5 @@ namespace Phelpers;
  * @return bool
  */
 function is_console(): bool {
-    return in_array(read(runtime('interface'), 'interface', 'cli'), ['cli', 'phpdbg'], true);
+    return \in_array(read(runtime('interface'), 'interface', 'cli'), ['cli', 'phpdbg'], true);
 }
