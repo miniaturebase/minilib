@@ -13,7 +13,7 @@ namespace Phelpers;
  * @return bool
  */
 function exists($subject, string $path): bool {
-    $noop = \md5(\sprintf('%s.%s.%d', str_random(), $path, \rand()));
+    $noop = \md5(path([str_random(), $path, \rand()], '.'));
 
     return read($subject, $path, $noop) !== $noop;
 }

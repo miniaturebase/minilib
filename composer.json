@@ -38,6 +38,8 @@
             "src/is_falsey.php",
             "src/is_truthy.php",
             "src/is_web.php",
+            "src/is_windows.php",
+            "src/is_unix.php",
             "src/kebab_case.php",
             "src/numeronym.php",
             "src/map.php",
@@ -46,6 +48,7 @@
             "src/ordinal.php",
             "src/partial.php",
             "src/pascal_case.php",
+            "src/path.php",
             "src/prepend.php",
             "src/random_float.php",
             "src/read.php",
@@ -72,7 +75,7 @@
         }
     },
     "require": {
-        "php": "^7.1"
+        "php": "^7.2"
     },
     "require-dev": {
         "symfony/var-dumper": "~4",
