@@ -50,6 +50,7 @@
             "src/partial.php",
             "src/pascal_case.php",
             "src/path.php",
+            "src/pluck.php",
             "src/prepend.php",
             "src/random_float.php",
             "src/read.php",
