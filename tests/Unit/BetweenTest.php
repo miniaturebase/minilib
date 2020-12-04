@@ -2,14 +2,24 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phelpers\Tests\Unit;
 
 use Generator;
 use InvalidArgumentException;
-use stdClass;
-
 use function Phelpers\between;
+
 use function Phelpers\str_random;
+use stdClass;
 
 it('can detect when a given value is between another two', function ($subject, $min, $max): void {
     expect(between($subject, $min, $max))->toBeTrue();
@@ -36,27 +46,27 @@ it('throws errors with non-numeric input', function ($subject, $min, $max): void
 })->throws(InvalidArgumentException::class)->with(static function (): Generator {
     yield from [
         'null subject' => [null, rand(0, 10), rand(0, 10)],
-        'null min' => [rand(0, 10), null, rand(0, 10)],
-        'null max' => [rand(0, 10), rand(0, 10), null],
+        'null min'     => [rand(0, 10), null, rand(0, 10)],
+        'null max'     => [rand(0, 10), rand(0, 10), null],
 
         'bool subject' => [(bool) rand(0, 1), rand(0, 10), rand(0, 10)],
-        'bool min' => [rand(0, 10), (bool) rand(0, 1), rand(0, 10)],
-        'bool max' => [rand(0, 10), rand(0, 10), (bool) rand(0, 1)],
+        'bool min'     => [rand(0, 10), (bool) rand(0, 1), rand(0, 10)],
+        'bool max'     => [rand(0, 10), rand(0, 10), (bool) rand(0, 1)],
 
         'string (non-numeric) subject' => [str_random(6), rand(0, 10), rand(0, 10)],
-        'string (non-numeric) min' => [rand(0, 10), str_random(6), rand(0, 10)],
-        'string (non-numeric) max' => [rand(0, 10), rand(0, 10), str_random(6)],
+        'string (non-numeric) min'     => [rand(0, 10), str_random(6), rand(0, 10)],
+        'string (non-numeric) max'     => [rand(0, 10), rand(0, 10), str_random(6)],
 
         'array subject' => [[], rand(0, 10), rand(0, 10)],
-        'array min' => [rand(0, 10), [], rand(0, 10)],
-        'array max' => [rand(0, 10), rand(0, 10), []],
+        'array min'     => [rand(0, 10), [], rand(0, 10)],
+        'array max'     => [rand(0, 10), rand(0, 10), []],
 
-        'object subject' => [new stdClass, rand(0, 10), rand(0, 10)],
-        'object min' => [rand(0, 10), new stdClass, rand(0, 10)],
-        'object max' => [rand(0, 10), rand(0, 10), new stdClass],
-        
+        'object subject' => [new stdClass(), rand(0, 10), rand(0, 10)],
+        'object min'     => [rand(0, 10), new stdClass(), rand(0, 10)],
+        'object max'     => [rand(0, 10), rand(0, 10), new stdClass()],
+
         'resource subject' => [fopen('php://temp', 'r'), rand(0, 10), rand(0, 10)],
-        'resource min' => [rand(0, 10), fopen('php://temp', 'r'), rand(0, 10)],
-        'resource max' => [rand(0, 10), rand(0, 10), fopen('php://temp', 'r')],
+        'resource min'     => [rand(0, 10), fopen('php://temp', 'r'), rand(0, 10)],
+        'resource max'     => [rand(0, 10), rand(0, 10), fopen('php://temp', 'r')],
     ];
 });

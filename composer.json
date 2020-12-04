@@ -9,6 +9,7 @@
     ],
     "license": "MIT",
     "scripts": {
+        "style": "vendor/bin/php-cs-fixer fix -vvv --config=.php_cs",
         "test": "vendor/bin/pest"
     },
     "minimum-stability": "dev",
@@ -83,6 +84,7 @@
         "symfony/var-dumper": "~4",
         "phpunit/phpunit": "9.3.11",
         "pestphp/pest": "^0.3.7",
-        "psy/psysh": "^0.10.4"
+        "psy/psysh": "^0.10.4",
+        "friendsofphp/php-cs-fixer": "^2.16"
     }
 }

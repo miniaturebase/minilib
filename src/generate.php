@@ -2,11 +2,21 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phelpers;
 
 use Closure;
-use InvalidArgumentException;
 use Generator;
+use InvalidArgumentException;
 
 /**
  * Create a generator for a number of indices given, each equal to the result of
@@ -18,13 +28,14 @@ use Generator;
  * @param Closure $closure The closure that will be called to generate a value
  * @return array
  */
-function generate($indices = 0, Closure $closure = null): Generator {
+function generate($indices = 0, Closure $closure = null): Generator
+{
     $isInt = \is_int($indices);
-    
+
     if (!$isInt and !\is_array($indices)) {
         throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'int|array', \gettype($indices)));
     }
-    
+
     if (!$indices) {
         return [];
     }

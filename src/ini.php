@@ -2,6 +2,16 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phelpers;
 
 use TypeError;
@@ -9,13 +19,14 @@ use TypeError;
 /**
  * Parse a complex `.ini` file with types, arrays, section inheritance, and
  * nested keys.
- * 
+ *
  * @param string|array $source The path to an `.ini` file or an array from built-in `parse_ini_*` function(s)
  * @return array
  */
-function ini($source): array {
+function ini($source): array
+{
     $document = null;
-    
+
     if (\is_array($source)) {
         $document = $source;
     } else {
@@ -23,11 +34,11 @@ function ini($source): array {
             \rewind($source);
 
             $contents = '';
-            
+
             while (($line = \fgets($source)) !== false) {
                 $contents = append($line, $contents);
             }
-        
+
             \fclose($source);
             swap($contents, $source);
             unset($contents);
@@ -43,7 +54,7 @@ function ini($source): array {
     if (\is_null($document)) {
         throw new TypeError(\sprintf('Argument 1 passed to %s() must be of the type %s, %s given', __FUNCTION__, 'array|string', \gettype($source)));
     }
-    
+
     $root = [];
     $trim = static function (string $value): string {
         return \trim($value);
@@ -57,7 +68,7 @@ function ini($source): array {
             if (false === \stristr((string) $value, '.')) {
                 return (int) $value;
             }
-            
+
             return (float) $value;
         }
 
@@ -67,13 +78,13 @@ function ini($source): array {
 
         return $value;
     };
-    
+
     map($document, static function ($value, $path) use (&$root, $parse, $trim) {
         $parent = null;
         $path = (string) $path; // handle lists ("arrays")
         $inheritance = \array_reverse(\array_map($trim, \explode('<', $path)));
         $value = transform($value, $parse);
-        
+
         foreach (\array_slice($inheritance, 0, 2) as $section) {
             if (\array_key_exists($section, $root)) {
                 $parent = read($root, $section);

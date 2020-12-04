@@ -2,6 +2,16 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phelpers;
 
 use InvalidArgumentException;
@@ -27,27 +37,28 @@ const PATHINFO_TRAILING = 2;
  * @return string
  * @throws InvalidArgumentException
  */
-function path(?array $segments, string $delimiter = \DIRECTORY_SEPARATOR, int $options = 0): string {
+function path(?array $segments, string $delimiter = \DIRECTORY_SEPARATOR, int $options = 0): string
+{
     if (blank($delimiter)) {
         throw new InvalidArgumentException(\sprintf('Argument 2 passed to %s() cannot be empty or contain only white space', __FUNCTION__));
     }
-    
+
     if (1 < \strlen($delimiter)) {
         throw new InvalidArgumentException(\sprintf('Argument 2 passed to %s() may not exceed 1 byte in size, %s given', __FUNCTION__, \strlen($delimiter)));
     }
 
     $isDirectory = \DIRECTORY_SEPARATOR === $delimiter;
-    
+
     if ($isDirectory
-        and \trim(head(wrap($segments)) ?? '') === '~'
+        and '~' === \trim(head(wrap($segments)) ?? '')
         and is_unix()
     ) {
         \array_shift($segments);
         \array_unshift($segments, read(\posix_getpwnam(whoami()) ?: [], 'dir', '~'));
     }
-    
+
     $path = \implode(
-        $delimiter, 
+        $delimiter,
         \array_filter(wrap($segments), static function ($segment): bool {
             return \is_numeric($segment)
                 or (\is_string($segment) and !empty($segment));
@@ -59,7 +70,7 @@ function path(?array $segments, string $delimiter = \DIRECTORY_SEPARATOR, int $o
             ? prepend(\sprintf('%s%s', \getenv('SystemDrive') ?: 'C:', $delimiter), $path)
             : prepend($delimiter, $path);
     }
-    
+
     if (PATHINFO_TRAILING === ($options & PATHINFO_TRAILING)) {
         $path = append($delimiter, $path);
     }

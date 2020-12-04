@@ -2,6 +2,16 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phelpers;
 
 use InvalidArgumentException;
@@ -12,20 +22,21 @@ use InvalidArgumentException;
  * @param mixed $value The value to be set
  * @return void
  */
-function write(&$subject, string $path, $value): void {
+function write(&$subject, string $path, $value): void
+{
     $isArray = \is_array($subject);
     $object = null;
-    
+
     if (!\is_object($subject) and !$isArray) {
         throw new InvalidArgumentException(\sprintf('Argument 1 passed to %s must be of the type %s, %s given', __FUNCTION__, 'array|object', \gettype($subject)));
     }
-    
+
     if (!$isArray) {
         $object = $subject;
     }
-    
+
     $segments = \explode(".", $path);
-    
+
     while (\count($segments) > 1) {
         $segment = \array_shift($segments);
 
@@ -48,7 +59,7 @@ function write(&$subject, string $path, $value): void {
 
     if ($isArray) {
         $subject[array_shift($segments)] = $value;
-        
+
         return;
     }
 

@@ -2,6 +2,16 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phelpers;
 
 use InvalidArgumentException;
@@ -13,7 +23,8 @@ use InvalidArgumentException;
  * @param string $delimiter The delimiter that sits between each namespace segment.
  * @return string
  */
-function class_basename($class, string $delimiter = '\\'): string {
+function class_basename($class, string $delimiter = '\\'): string
+{
     $isObject = \is_object($class);
 
     if (!$isObject and !\is_string($class)) {
@@ -23,7 +34,7 @@ function class_basename($class, string $delimiter = '\\'): string {
     if (!$isObject and blank($class)) {
         return '';
     }
-    
+
     return tail(\array_filter(
         \explode($delimiter, ($isObject) ? \get_class($class) : $class),
     ));

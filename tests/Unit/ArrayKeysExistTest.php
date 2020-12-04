@@ -2,6 +2,16 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phelpers\Tests\Unit;
 
 use function Phelpers\array_keys_exist;
@@ -14,7 +24,7 @@ test('array multiple keys can be checked at once', function (
 ): void {
     expect(array_keys_exist($keys, $subject))->toBeTrue();
 })->with([
-    'empty array (no indices)' => [[], []],
+    'empty array (no indices)'        => [[], []],
     'indexed array (integer indices)' => [
         [0, 1, 2, 3, 4, 5, 6],
         ['asdf', [], new stdClass(), 1, 6.9, ((bool) rand(0, 1)), null],

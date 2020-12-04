@@ -2,8 +2,17 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 use function Phelpers\generate;
-use function Phelpers\read;
 use function Phelpers\map;
 use function Phelpers\str_random;
 
@@ -17,7 +26,7 @@ it('generates from callbacks', function (): void {
     $users = generate([1, 2, 3], static function (int $item): array {
         return ['id' => $item, 'username' => str_random(6)];
     });
-    
+
     expect($users)
         ->toBeIterable()
         ->toBeInstanceOf(Generator::class)
@@ -27,10 +36,9 @@ it('generates from callbacks', function (): void {
                 ->and($user['id'])
                 ->toBeInt()
                 ->toBeLessThanOrEqual(3);
-            
+
             return $user;
         }))
         ->toBeArray()
         ->toHaveCount(3);
-        
 });

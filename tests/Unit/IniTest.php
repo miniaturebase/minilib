@@ -2,6 +2,16 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phelpers\Tests\Unit;
 
 use function Phelpers\ini;
@@ -14,11 +24,11 @@ use TypeError;
 it('throws exception when document is not correct type', function ($source): void {
     ini($source);
 })->throws(TypeError::class)->with([
-    'null source' => [null],
-    'boolean source' => [(bool) rand(0, 1)],
-    'integer source' => [rand(PHP_INT_MIN, PHP_INT_MAX)],
+    'null source'            => [null],
+    'boolean source'         => [(bool) rand(0, 1)],
+    'integer source'         => [rand(PHP_INT_MIN, PHP_INT_MAX)],
     'float (decimal) source' => [random_float(PHP_FLOAT_MIN, PHP_FLOAT_MAX)],
-    'object source' => [new stdClass],
+    'object source'          => [new stdClass()],
 ]);
 
 it('ignores comments')
@@ -32,7 +42,7 @@ it('reads .ini files', function ($source): void {
         ->not()
         ->toBeEmpty();
 })->with([
-    'file path' => [sprintf('%s/../Fixtures/test.ini', __DIR__)],
+    'file path'     => [sprintf('%s/../Fixtures/test.ini', __DIR__)],
     'file resource' => [fopen(sprintf('%s/../Fixtures/test.ini', __DIR__), 'r')],
     'file contents' => [
         <<<'INI'

@@ -2,16 +2,26 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the jordanbrauer/phelpers PHP library.
+ *
+ * @copyright 2020 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @license MIT
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phelpers\Tests\Unit;
 
 use InvalidArgumentException;
 
-use const Phelpers\PATHINFO_ABSOLUTE;
-use const Phelpers\PATHINFO_TRAILING;
-
 use function Phelpers\array_make;
 use function Phelpers\is_windows;
+
 use function Phelpers\path;
+use const Phelpers\PATHINFO_ABSOLUTE;
+use const Phelpers\PATHINFO_TRAILING;
 use function Phelpers\str_random;
 
 it('joins things together', function (array $segments, string $delimiter): void {
@@ -74,7 +84,7 @@ test('tilde expansion (section 2.6.1 of POSIX spec)')
 test('windows OS drive detection for absolute paths')
     ->skip(!is_windows(), 'Unix and other non-Windows or DOS based OSs do not use drive letter assignment')
     ->expect(path(['some', 'path'], \DIRECTORY_SEPARATOR, PATHINFO_ABSOLUTE))
-    ->toStartWith('C:\\') // NOTE: will need to setup tests on windows to see wtf this even will be 
+    ->toStartWith('C:\\') // NOTE: will need to setup tests on windows to see wtf this even will be
     ->not()
     ->toEndWith('C:\\')
     ->toEndWith('\\path');
@@ -87,5 +97,5 @@ it('throws errors when delimiters are blank', function (): void {
     path([], '');
 })->throws(InvalidArgumentException::class)->with([
     'empty string' => [''],
-    'white space' => [str_repeat(' ', rand(1, 100))],
+    'white space'  => [str_repeat(' ', rand(1, 100))],
 ]);
