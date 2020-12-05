@@ -45,7 +45,9 @@ jobs:
     - name: Unpackage Artifacts
       run: tar -xvf vendor.tar 
     - name: Validate
-      run: composer validate
+      run: |
+        composer validate
+        composer normalize --dry-run
     - name: Lint (Codestyle)
       run: composer style -- --dry-run
     - name: Static Analysis

@@ -1,20 +1,31 @@
 {
     "name": "jordanbrauer/phelpers",
     "description": "Collection of random helper QoLfunctions for PHP.",
+    "license": "MIT",
     "authors": [
         {
             "name": "Jordan Brauer",
             "email": "18744334+jordanbrauer@users.noreply.github.com"
         }
     ],
-    "license": "MIT",
-    "scripts": {
-        "analyze": "vendor/bin/phpstan analyse --configuration=phpstan.neon",
-        "style": "vendor/bin/php-cs-fixer fix -vvv --config=.php_cs",
-        "test": "vendor/bin/pest"
+    "require": {
+        "php": "^7.2"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.11",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "pestphp/pest": "^0.3.7",
+        "phpstan/phpstan": "^0.12.58",
+        "phpunit/phpunit": "9.3.11",
+        "psy/psysh": "^0.10.4",
+        "symfony/var-dumper": "~4"
+    },
+    "extra": {
+        "composer-normalize": {
+            "indent-size": 4,
+            "indent-style": "space"
+        }
+    },
     "autoload": {
         "psr-4": {
             "Phelpers\\": "src/"
@@ -78,15 +89,11 @@
             "Phelpers\\Tests\\Unit\\": "tests/Unit/"
         }
     },
-    "require": {
-        "php": "^7.2"
-    },
-    "require-dev": {
-        "symfony/var-dumper": "~4",
-        "phpunit/phpunit": "9.3.11",
-        "pestphp/pest": "^0.3.7",
-        "psy/psysh": "^0.10.4",
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "phpstan/phpstan": "^0.12.58"
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "analyze": "vendor/bin/phpstan analyse --configuration=phpstan.neon",
+        "style": "vendor/bin/php-cs-fixer fix -vvv --config=.php_cs",
+        "test": "vendor/bin/pest"
     }
 }

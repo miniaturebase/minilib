@@ -12,30 +12,78 @@
 
 <br />
 
-Collection of random helper QoLfunctions for PHP.
+A collection of random quality of life functions for PHP – a sort of _toolbox_.
 
-```php
-use function Phelpers{append, head, tail};
+## Requirements
 
-$sequence = '1,2,3';
-$sequence = append(4, $sequence, ',');
+There are not many requirements for this library; infact, the only true requirement is PHP, but if you plan to contribute, having GNU Make installed will make for nicer dev experience than without.
 
-echo $sequence; # (string) 1,2,3,4
+| Requirement      | Version |
+|:-----------------|:-------:|
+| PHP              | `^7.2`  |
+| Make (dev only)  | `^3.81` |
 
-$list = [1, 2, 3];
-$list = append(4, $list);
+## Installation
 
-echo head($list); # (int) 1
-echo tail($list); # (int) 4
+Nothing much to do but require the library in your own project's composer dependencies!
+
+```bash
+$ composer require jordanbrauer/phelpers
+```
+
+Once you have the library installed, head over to the list of [**available functions**](#Available-Functions) to shop around.
+
+## Development
+
+1. Start by cloning the project to your own machine.
+1. Move yourself into the newly cloned repository directory.
+1. Run make to install dev dependencies.
+
+```bash
+$ git clone https://github.com/jordanbrauer/phelpers.git \
+    && cd ./phelpers \
+    && make vendor \
+    && make;
+```
+
+### Usage 
+
+As mentioned in the _Requirements_ section of this document, having GNU Make installed on your system will make for nice development experience while contributing. To get started, run Make without any targets or arguments:
+
+```bash
+$ make
+```
+
+And you will be greeted with the list of targets for this project!
+
+```
+Usage:
+  make [target] [arg="val"...]
+
+Targets:
+  analysis        Run analysis
+  help            Show this help message
+  repl            Start a REPL instance and interact with the library
+  test            Run tests
+  vendor          Install vendor dependencies
 ```
 
 ### Try Me
 
-If you would like to play around with the functions, simply boot up the REPL packaged with the repository!
+If you're not sure that this library is right for you, can "try before you buy". Start by [installing the project for development](#Development), and then simply boot up [the **REPL**](https://github.com/bobthecow/psysh) packaged with the repository!
 
 ```bash
-$ php play
+$ make repl
 ```
+
+Using the functions is easy – just make sure that you preface your functions with the projects namespace first.
+
+```php
+λ Phelpers\is_console() # true
+λ Phelpers\is_web()     # false
+```
+
+## Available Functions
 
 ### Array Functions
 
