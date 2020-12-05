@@ -9,6 +9,7 @@
     ],
     "license": "MIT",
     "scripts": {
+        "analyze": "vendor/bin/phpstan analyse --configuration=phpstan.neon",
         "style": "vendor/bin/php-cs-fixer fix -vvv --config=.php_cs",
         "test": "vendor/bin/pest"
     },
@@ -85,6 +86,7 @@
         "phpunit/phpunit": "9.3.11",
         "pestphp/pest": "^0.3.7",
         "psy/psysh": "^0.10.4",
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpstan/phpstan": "^0.12.58"
     }
 }

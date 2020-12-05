@@ -46,8 +46,10 @@ jobs:
       run: tar -xvf vendor.tar 
     - name: Validate
       run: composer validate
-    - name: Lint
+    - name: Lint (Codestyle)
       run: composer style -- --dry-run
+    - name: Static Analysis
+      run: composer analyze -- --error-format=github
 
   tests:
     runs-on: ubuntu-latest
