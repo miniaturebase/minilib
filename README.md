@@ -4,7 +4,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/jordanbrauer/phelpers/v/unstable?format=flat-square)](//packagist.org/packages/jordanbrauer/phelpers)
 [![Test Status](https://img.shields.io/github/workflow/status/jordanbrauer/phelpers/CI?label=tests&style=flat-square)](https://github.com/jordanbrauer/phelpers/actions?query=workflow%3ACI)
 
-[![Maintenance](https://img.shields.io/maintenance/yes/2020.svg?style=flat-square)](https://github.com/jordanbrauer/phelpers)
+[![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=flat-square)](https://github.com/jordanbrauer/phelpers)
 [![Packagist](https://img.shields.io/packagist/dt/jordanbrauer/phelpers.svg?style=flat-square)](https://packagist.org/packages/jordanbrauer/phelpers)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/jordanbrauer/phelpers.svg?style=flat-square)](https://secure.php.net/releases/)
 [![composer.lock available](https://poser.pugx.org/jordanbrauer/phelpers/composerlock?format=flat-square)](https://packagist.org/packages/jordanbrauer/phelpers)
