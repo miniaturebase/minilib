@@ -1,6 +1,6 @@
 # Minilib
 
-<!-- [![Latest Stable Version](https://poser.pugx.org/minibase-app/minilib/version?format=flat-square)](https://packagist.org/packages/minibase-app/minilib)
+[![Latest Stable Version](https://poser.pugx.org/minibase-app/minilib/version?format=flat-square)](https://packagist.org/packages/minibase-app/minilib)
 [![Latest Unstable Version](https://poser.pugx.org/minibase-app/minilib/v/unstable?format=flat-square)](//packagist.org/packages/minibase-app/minilib)
 [![Test Status](https://img.shields.io/github/workflow/status/minibase-app/minilib/CI?label=tests&style=flat-square)](https://github.com/minibase-app/minilib/actions?query=workflow%3ACI)
 
@@ -10,7 +10,7 @@
 [![composer.lock available](https://poser.pugx.org/minibase-app/minilib/composerlock?format=flat-square)](https://packagist.org/packages/minibase-app/minilib)
 [![license](https://img.shields.io/github/license/minibase-app/minilib.svg?style=flat-square)](https://github.com/minibase-app/minilib/blob/master/LICENSE)
 
-<br /> -->
+<br />
 
 A collection of random, quality of life functions for PHP – a sort of kitchen-sink _toolbox_.
 
