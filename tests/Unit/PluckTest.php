@@ -14,10 +14,10 @@ declare(strict_types = 1);
 
 namespace Minibase\Tests\Unit;
 
-use OutOfRangeException;
 use function Minibase\pluck;
-
 use function Minibase\str_random;
+
+use OutOfRangeException;
 use TypeError;
 
 it('plucks')
