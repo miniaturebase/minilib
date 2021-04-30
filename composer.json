@@ -1,6 +1,6 @@
 {
-    "name": "jordanbrauer/phelpers",
-    "description": "Collection of random helper QoLfunctions for PHP.",
+    "name": "minibase-app/minilib",
+    "description": "A collection of random, quality of life functions for PHP – a sort of kitchen-sink toolbox.",
     "license": "MIT",
     "authors": [
         {
@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Phelpers\\": "src/"
+            "Minibase\\": "src/"
         },
         "files": [
             "src/append.php",
@@ -85,8 +85,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Phelpers\\Tests\\": "tests/",
-            "Phelpers\\Tests\\Unit\\": "tests/Unit/"
+            "Minibase\\Tests\\": "tests/",
+            "Minibase\\Tests\\Unit\\": "tests/Unit/"
         }
     },
     "minimum-stability": "dev",

@@ -1,18 +1,18 @@
-# PHelPers
+# Minilib
 
-[![Latest Stable Version](https://poser.pugx.org/jordanbrauer/phelpers/version?format=flat-square)](https://packagist.org/packages/jordanbrauer/phelpers)
-[![Latest Unstable Version](https://poser.pugx.org/jordanbrauer/phelpers/v/unstable?format=flat-square)](//packagist.org/packages/jordanbrauer/phelpers)
-[![Test Status](https://img.shields.io/github/workflow/status/jordanbrauer/phelpers/CI?label=tests&style=flat-square)](https://github.com/jordanbrauer/phelpers/actions?query=workflow%3ACI)
+<!-- [![Latest Stable Version](https://poser.pugx.org/minibase-app/minilib/version?format=flat-square)](https://packagist.org/packages/minibase-app/minilib)
+[![Latest Unstable Version](https://poser.pugx.org/minibase-app/minilib/v/unstable?format=flat-square)](//packagist.org/packages/minibase-app/minilib)
+[![Test Status](https://img.shields.io/github/workflow/status/minibase-app/minilib/CI?label=tests&style=flat-square)](https://github.com/minibase-app/minilib/actions?query=workflow%3ACI)
 
-[![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=flat-square)](https://github.com/jordanbrauer/phelpers)
-[![Packagist](https://img.shields.io/packagist/dt/jordanbrauer/phelpers.svg?style=flat-square)](https://packagist.org/packages/jordanbrauer/phelpers)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/jordanbrauer/phelpers.svg?style=flat-square)](https://secure.php.net/releases/)
-[![composer.lock available](https://poser.pugx.org/jordanbrauer/phelpers/composerlock?format=flat-square)](https://packagist.org/packages/jordanbrauer/phelpers)
-[![license](https://img.shields.io/github/license/jordanbrauer/phelpers.svg?style=flat-square)](https://github.com/jordanbrauer/phelpers/blob/master/LICENSE)
+[![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=flat-square)](https://github.com/minibase-app/minilib)
+[![Packagist](https://img.shields.io/packagist/dt/minibase-app/minilib.svg?style=flat-square)](https://packagist.org/packages/minibase-app/minilib)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/minibase-app/minilib.svg?style=flat-square)](https://secure.php.net/releases/)
+[![composer.lock available](https://poser.pugx.org/minibase-app/minilib/composerlock?format=flat-square)](https://packagist.org/packages/minibase-app/minilib)
+[![license](https://img.shields.io/github/license/minibase-app/minilib.svg?style=flat-square)](https://github.com/minibase-app/minilib/blob/master/LICENSE)
 
-<br />
+<br /> -->
 
-A collection of random quality of life functions for PHP – a sort of _toolbox_.
+A collection of random, quality of life functions for PHP – a sort of kitchen-sink _toolbox_.
 
 ## Requirements
 
@@ -28,7 +28,7 @@ There are not many requirements for this library; infact, the only true requirem
 Nothing much to do but require the library in your own project's composer dependencies!
 
 ```bash
-$ composer require jordanbrauer/phelpers
+$ composer require minibase-app/minilib
 ```
 
 Once you have the library installed, head over to the list of [**available functions**](#Available-Functions) to shop around.
@@ -40,8 +40,8 @@ Once you have the library installed, head over to the list of [**available funct
 1. Run make to install dev dependencies.
 
 ```bash
-$ git clone https://github.com/jordanbrauer/phelpers.git \
-    && cd ./phelpers \
+$ git clone https://github.com/minibase-app/minilib.git \
+    && cd ./minilib \
     && make vendor \
     && make;
 ```
@@ -79,11 +79,13 @@ $ make repl
 Using the functions is easy – just make sure that you preface your functions with the projects namespace first.
 
 ```php
-λ Phelpers\is_console() # true
-λ Phelpers\is_web()     # false
+λ Minibase\is_console() # true
+λ Minibase\is_web()     # false
 ```
 
 ## Available Functions
+
+_This is a non-exhaustive list – see the `src/` directory for a full list!_
 
 ### Array Functions
 

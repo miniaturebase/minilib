@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /**
- * This file is part of the jordanbrauer/phelpers PHP library.
+ * This file is part of the minibase-app/minilib PHP library.
  *
  * @copyright 2021 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @license MIT
@@ -12,9 +12,9 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-use function Phelpers\array_make;
-use function Phelpers\generate;
-use function Phelpers\random_float;
+use function Minibase\array_make;
+use function Minibase\generate;
+use function Minibase\random_float;
 
 dataset('random', static function (): Generator {
     yield from [

@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /**
- * This file is part of the jordanbrauer/phelpers PHP library.
+ * This file is part of the minibase-app/minilib PHP library.
  *
  * @copyright 2021 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @license MIT
@@ -12,17 +12,17 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace Phelpers\Tests\Unit;
+namespace Minibase\Tests\Unit;
 
 use InvalidArgumentException;
 
-use function Phelpers\array_make;
-use function Phelpers\is_windows;
+use function Minibase\array_make;
+use function Minibase\is_windows;
 
-use function Phelpers\path;
-use const Phelpers\PATHINFO_ABSOLUTE;
-use const Phelpers\PATHINFO_TRAILING;
-use function Phelpers\str_random;
+use function Minibase\path;
+use const Minibase\PATHINFO_ABSOLUTE;
+use const Minibase\PATHINFO_TRAILING;
+use function Minibase\str_random;
 
 it('joins things together', function (array $segments, string $delimiter): void {
     expect(path($segments, $delimiter))

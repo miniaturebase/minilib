@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /**
- * This file is part of the jordanbrauer/phelpers PHP library.
+ * This file is part of the minibase-app/minilib PHP library.
  *
  * @copyright 2021 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @license MIT
@@ -12,13 +12,13 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace Phelpers\Tests\Unit;
+namespace Minibase\Tests\Unit;
 
 use Generator;
 use InvalidArgumentException;
-use function Phelpers\prepend;
+use function Minibase\prepend;
 
-use function Phelpers\str_random;
+use function Minibase\str_random;
 use stdClass;
 
 it('prepends things to strings', function (

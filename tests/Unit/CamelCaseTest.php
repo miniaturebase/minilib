@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /**
- * This file is part of the jordanbrauer/phelpers PHP library.
+ * This file is part of the minibase-app/minilib PHP library.
  *
  * @copyright 2021 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @license MIT
@@ -12,8 +12,8 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-use function Phelpers\camel_case;
-use function Phelpers\map;
+use function Minibase\camel_case;
+use function Minibase\map;
 
 it('camel cases strings', function ($expected, string ...$subjects): void {
     map($subjects, static function ($subject) use ($expected): void {

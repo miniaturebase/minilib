@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /**
- * This file is part of the jordanbrauer/phelpers PHP library.
+ * This file is part of the minibase-app/minilib PHP library.
  *
  * @copyright 2021 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @license MIT
@@ -12,7 +12,7 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace Phelpers;
+namespace Minibase;
 
 use InvalidArgumentException;
 
@@ -33,7 +33,7 @@ const PATHINFO_TRAILING = 2;
  *
  * @param string[]|array|null $segments A list of segments to create a path from
  * @param string $delimiter The optional 1-byte delimiter to use for the path – by default it uses the operating system directory separator
- * @param int $options A bitmask of `Phelpers\PATHINFO_*` constants
+ * @param int $options A bitmask of `Minibase\PATHINFO_*` constants
  * @return string
  * @throws InvalidArgumentException
  */

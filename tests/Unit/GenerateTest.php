@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /**
- * This file is part of the jordanbrauer/phelpers PHP library.
+ * This file is part of the minibase-app/minilib PHP library.
  *
  * @copyright 2021 Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @license MIT
@@ -12,9 +12,9 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-use function Phelpers\generate;
-use function Phelpers\map;
-use function Phelpers\str_random;
+use function Minibase\generate;
+use function Minibase\map;
+use function Minibase\str_random;
 
 it('creates a generator', function (): void {
     expect(generate(rand(0, 10)))
