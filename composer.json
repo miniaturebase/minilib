@@ -27,9 +27,6 @@
         }
     },
     "autoload": {
-        "psr-4": {
-            "Minibase\\": "src/"
-        },
         "files": [
             "src/append.php",
             "src/array_keys_exist.php",
