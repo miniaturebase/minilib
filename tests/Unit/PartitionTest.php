@@ -17,4 +17,4 @@ it('partitions a list', function (): void {
         ->toHaveCount($half)
         ->and(array_sum($pass + $fail))
         ->toBe(array_sum($range));
-})->only();
+});
