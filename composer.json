@@ -42,6 +42,7 @@
             "src/class_basename.php",
             "src/collapse.php",
             "src/exists.php",
+            "src/filter.php",
             "src/generate.php",
             "src/head.php",
             "src/here.php",
