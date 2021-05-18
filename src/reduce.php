@@ -14,6 +14,15 @@ declare(strict_types = 1);
 
 namespace Minibase;
 
+/**
+ * Reduce an iterable to a new single value, using the given closure as a
+ * receiver.
+ *
+ * @param iterable $iterable Some list of items to loop over
+ * @param callable $closure A function which receives the new (initial) value, item, index, and list as it's arguments
+ * @param mixed|null $initial Some initial value to start accumulating with
+ * @return void
+ */
 function reduce(iterable $iterable, callable $closure, $initial = null)
 {
     $new = $initial;
