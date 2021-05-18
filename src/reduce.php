@@ -21,7 +21,7 @@ namespace Minibase;
  * @param iterable $iterable Some list of items to loop over
  * @param callable $closure A function which receives the new (initial) value, item, index, and list as it's arguments
  * @param mixed|null $initial Some initial value to start accumulating with
- * @return void
+ * @return mixed
  */
 function reduce(iterable $iterable, callable $closure, $initial = null)
 {
